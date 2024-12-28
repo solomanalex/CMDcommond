@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMD Command Reference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #0078D7;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #0078D7;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0078D7;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CMD Command Reference</h1>
+    <p>Your one-stop guide to mastering Windows Command Prompt commands!</p>
+</header>
+
+<div class="container">
+    <h2>Search for CMD Commands</h2>
+    <input type="text" id="searchInput" placeholder="Search for a command..." onkeyup="searchCommand()">
+
+    <h2>Command List</h2>
+    <table id="commandTable">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>How to Use</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>dir</td>
+                <td>Lists files and directories in the current directory.</td>
+                <td>Type <code>dir</code> and press Enter.</td>
+            </tr>
+            <tr>
+                <td>cd</td>
+                <td>Changes the current directory.</td>
+                <td>Type <code>cd [directory_name]</code> and press Enter.</td>
+            </tr>
+            <tr>
+                <td>ipconfig</td>
+                <td>Displays network configuration details.</td>
+                <td>Type <code>ipconfig</code> and press Enter.</td>
+            </tr>
+            <tr>
+                <td>ping</td>
+                <td>Checks the connectivity to a specific IP or website.</td>
+                <td>Type <code>ping [address]</code> and press Enter.</td>
+            </tr>
+            <tr>
+                <td>tasklist</td>
+                <td>Displays a list of currently running processes.</td>
+                <td>Type <code>tasklist</code> and press Enter.</td>
+            </tr>
+            <tr>
+                <td>shutdown</td>
+                <td>Shuts down the computer.</td>
+                <td>Type <code>shutdown /s</code> to shut down.</td>
+            </tr>
+            <tr>
+                <td>cls</td>
+                <td>Clears the command line screen.</td>
+                <td>Type <code>cls</code> and press Enter.</td>
+            </tr>
+            <tr>
+                <td>echo</td>
+                <td>Displays messages or turns on/off command echoing.</td>
+                <td>Type <code>echo [message]</code> and press Enter.</td>
+            </tr>
+            <tr>
+                <td>exit</td>
+                <td>Closes the command prompt window.</td>
+                <td>Type <code>exit</code> and press Enter.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<footer>
+    <p>&copy; 2024 CMD Command Reference. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function searchCommand() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("commandTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            if (td) {
+                var matchFound = false;
+                for (var j = 0; j < td.length; j++) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        matchFound = true;
+                    }
+                }
+                if (matchFound) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
